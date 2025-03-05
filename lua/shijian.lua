@@ -2143,14 +2143,14 @@ local function translator(input, seg, env)
         }
         generate_candidates("oww", seg, week_variants)
 
-    -- **节气候选项**
+        -- **节气候选项**
     elseif (input == "/jq" or input == "ojq") then
         local jqs = GetNowTimeJq(os.date("%Y%m%d", os.time() - 3600 * 24 * 15))
+        local jq_variants = {}
         for _, jq in ipairs(jqs) do
-            local candidate = Candidate("jwql", seg.start, seg._end, jq, "〔节气〕")
-            candidate.quality = 1000000
-            yield(candidate)
+            table.insert(jq_variants, {jq, "〔节气〕"})
         end
+        generate_candidates("ojq", seg, jq_variants)
 
     -- **时间戳**
     elseif (input == "/tt" or input == "ott") then
@@ -2233,7 +2233,7 @@ local function translator(input, seg, env)
                 day = tonumber(jieqi_date:sub(9, 10))
             })
         
-            local diff_days = math.floor((target_time - now) / (24 * 3600))
+            local diff_days = math.floor((target_time - now) / (24 * 3600)) + 1
         
             -- 确保今天是节气时 diff_days == 0
             if os.date("%Y%m%d", target_time) == os.date("%Y%m%d", now) then
