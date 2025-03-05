@@ -2222,18 +2222,49 @@ local function translator(input, seg, env)
         -- 获取最近的三个节气
         local jqs = GetNowTimeJq(os.date("%Y%m%d", now))
         local upcoming_jqs = {}
-        for i = 1, 2 do
-            if jqs[i] then
-                table.insert(upcoming_jqs, jqs[i])
-            end
-        end
-        -- 计算距离这些节气的天数
+        local zero_jieqi = nil  -- 记录今天的节气
+        
+        -- 计算距离某个节气的天数
         local function days_until_jieqi(jieqi)
             local jieqi_date = jieqi:match("(%d+-%d+-%d+)$")  -- 提取节气日期部分
-            local target_time = os.time({year = tonumber(jieqi_date:sub(1, 4)), month = tonumber(jieqi_date:sub(6, 7)), day = tonumber(jieqi_date:sub(9, 10))})
+            local target_time = os.time({
+                year = tonumber(jieqi_date:sub(1, 4)), 
+                month = tonumber(jieqi_date:sub(6, 7)), 
+                day = tonumber(jieqi_date:sub(9, 10))
+            })
+        
             local diff_days = math.floor((target_time - now) / (24 * 3600))
-            return diff_days >= 0 and diff_days or (diff_days + days_in_year)
+        
+            -- 确保今天是节气时 diff_days == 0
+            if os.date("%Y%m%d", target_time) == os.date("%Y%m%d", now) then
+                return 0  -- 今天正好是节气
+            end
+        
+            return diff_days
         end
+        
+        -- 遍历最近的 3 个节气
+        for i = 1, math.min(3, #jqs) do
+            local jieqi = jqs[i]
+            local diff_days = days_until_jieqi(jieqi)
+        
+            if diff_days == 0 then
+                local jieqi_name = jieqi:match("^(%S+)")
+                zero_jieqi = jieqi_name  -- 记录今天的节气
+            elseif diff_days > 0 then
+                table.insert(upcoming_jqs, jieqi)
+            end
+        end
+        
+        -- 处理 upcoming_jqs 选取逻辑
+        if zero_jieqi then
+            -- **今天是节气，取后两个节气**
+            upcoming_jqs = {upcoming_jqs[1], upcoming_jqs[2]}
+        else
+            -- **今天不是节气，取前两个节气**
+            upcoming_jqs = {jqs[1], jqs[2]}
+        end
+        
         -- 获取每个节气的距离天数
         local jieqi_days = {}
         for _, jieqi in ipairs(upcoming_jqs) do
@@ -2245,22 +2276,46 @@ local function translator(input, seg, env)
         local new_year_time = os.time({year = next_year, month = 1, day = 1})
         local diff_days_next_year = math.floor((new_year_time - now) / (24 * 3600))
 
-        -- 遍历前两个节日并返回节日名称、日期、倒计时天数
+        -- 遍历前三个节日并返回节日名称、日期、倒计时天数
         local upcoming_holidays = get_upcoming_holidays() or {}
         local holiday_data = {}
+        local zero_holiday = nil  -- 独立存储 holiday[3] == 0 的节日名称
         
-        for i = 1, math.min(2, #upcoming_holidays) do
+        local filtered_holidays = {}
+        local zero_found = false
+        
+        for i = 1, math.min(3, #upcoming_holidays) do
             local holiday = upcoming_holidays[i]
             
-            -- 提取公历日期的年份、月份和日期部分（假设格式为 "yyyy年mm月dd日"）
-            local year, month, day = holiday[2]:match("^(%d+)年(%d+)月(%d+)日")
-            
-            -- 将日期格式化为 "yyyy-mm-dd"
-            if year and month and day then
-                local formatted_date = string.format("%04d-%02d-%02d", tonumber(year), tonumber(month), tonumber(day))
+            if holiday[3] == 0 then
+                zero_holiday = holiday[1]  -- 记录这个节日名称
+                zero_found = true
+            else
+                table.insert(filtered_holidays, holiday)
+            end
+        end
+        
+        if zero_found then
+            -- 只存储后两个节日
+            for i = math.max(1, #filtered_holidays - 1), #filtered_holidays do
+                local holiday = filtered_holidays[i]
+                local year, month, day = holiday[2]:match("^(%d+)年(%d+)月(%d+)日")
                 
-                -- 插入格式化后的节日数据
-                table.insert(holiday_data, {holiday[1], formatted_date, holiday[3]})
+                if year and month and day then
+                    local formatted_date = string.format("%04d-%02d-%02d", tonumber(year), tonumber(month), tonumber(day))
+                    table.insert(holiday_data, {holiday[1], formatted_date, holiday[3]})
+                end
+            end
+        else
+            -- 存储前两个节日
+            for i = 1, math.min(2, #filtered_holidays) do
+                local holiday = filtered_holidays[i]
+                local year, month, day = holiday[2]:match("^(%d+)年(%d+)月(%d+)日")
+                
+                if year and month and day then
+                    local formatted_date = string.format("%04d-%02d-%02d", tonumber(year), tonumber(month), tonumber(day))
+                    table.insert(holiday_data, {holiday[1], formatted_date, holiday[3]})
+                end
             end
         end
         -- 生成问候语函数
@@ -2297,27 +2352,27 @@ local function translator(input, seg, env)
         end
         
         -- 你可以根据需要调整长度
-        local line = generate_line(15)  -- 控制符号线的宽度为 15
+        local line = generate_line(15)  -- 控制符号线的宽度为 50
         -- 生成最终信息字符串
         local summary = 
-            string.format("嗨，我是万象拼音小助手，%s\n", greeting) ..
+            string.format("🌟嗨，我是万象小助手，%s\n", greeting) ..
             line .. "\n" ..
-            string.format("今天是：%d年%02d月%02d日 %s\n", year, month, day, week_day_str) ..
-            string.format("农历：%s\n", lunar_info_str) ..
+            string.format("📅今天是：%s %s\n",  zero_holiday or "", zero_jieqi or "") ..
+            string.format("📅%d年%02d月%02d日 %s\n", year, month, day, week_day_str) ..
+            string.format("📅农历：%s\n", lunar_info_str) ..
             line .. "\n" ..
-            string.format("%d年进度:   %s\n", year, progress_bar) ..
-            string.format("距离 %d 年: 还有 [ %d ]天\n", next_year, diff_days_next_year) ..
+            string.format("📊 %d进度：\n", year) ..
+            string.format("📌%s\n",progress_bar) ..
+            string.format("🎈本年第[ %d ]周，本月第[ %d ]周\n", week_of_year, week_of_month) ..
+            string.format("🎈距 %d 年： [ %d ]天\n", next_year, diff_days_next_year) ..
+            string.format("🎈今年已过[ %d ]天\n", day_of_year - 1) ..
+            string.format("🎈今天是第[ %d ]天\n", day_of_year) ..
             line .. "\n" ..
-            string.format("今天是%d年的第[ %d ]周，%02d月第[ %d ]周\n", year, week_of_year, month, week_of_month) ..
-            string.format("今年已度过[ %d ]天今天是第[ %d ]天\n", day_of_year - 1, day_of_year) ..
-            line .. "\n" ..
-            string.format("距离: %s %s < [ %d ]天\n", holiday_data[1][1], holiday_data[1][2], holiday_data[1][3]) .. 
-            string.format("距离: %s %s < [ %d ]天\n", holiday_data[2][1], holiday_data[2][2], holiday_data[2][3]) ..
-            line .. "\n" ..
-            string.format("距离: %s < [ %d ]天\n", upcoming_jqs[1], jieqi_days[1]) ..
-            string.format("距离: %s < [ %d ]天", upcoming_jqs[2], jieqi_days[2]) --..
-         --   string.format("距离: %s 还有 [ %d ]天\n", upcoming_jqs[3], jieqi_days[3])
-    
+            string.format("⏳ 倒数日：\n") ..
+            string.format("🎈 %s %s < [ %d ]天\n", holiday_data[1][1], holiday_data[1][2], holiday_data[1][3]) .. 
+            string.format("🎈 %s %s < [ %d ]天\n", holiday_data[2][1], holiday_data[2][2], holiday_data[2][3]) ..
+            string.format("🎈 %s < [ %d ]天\n", upcoming_jqs[1], jieqi_days[1]) ..
+            string.format("🎈 %s < [ %d ]天", upcoming_jqs[2], jieqi_days[2])
         -- 使用 generate_candidates 函数生成候选项
         local candidates = {
             {summary, "日期信息整合"}
@@ -2327,5 +2382,3 @@ local function translator(input, seg, env)
     end
 end
 return translator
-
-
