@@ -3,7 +3,7 @@
 #https://github.com/amzxyz/RIME-LMDG
 ---
 name: chars
-version: "2025-03-06 16:13"
+version: "2025-03-06 18:28"
 sort: by_weight
 ...
 啊	a;kk;kk;ka;oj;rr;dz;kb;kk	915
@@ -17696,6 +17696,7 @@ sort: by_weight
 桔	jú;mk;mk;mj;wo;dr;ed;sf;lk	523
 沮	jǔ;dq;dq;dq;ku;em;kf;ie;dq	519
 驹	jū;mj;mk;mj;zi;nr;ng;cq;mk	517
+車	jū;iu;al;aa;ds;jj;yc;lg;	510
 炬	jù;hj;hj;hj;tr;fs;cn;oa;hj	505
 钜	jù;jj;jj;jj;dr;os;zn;qa;jj	495
 踞	jù;zg;zk;zj;go;rr;pc;kh;zk	458
@@ -17869,7 +17870,6 @@ sort: by_weight
 跙	jū;zq;zq;zq;;rm;pf;kh;	1
 蹻	jú;zk;zk;zq;;rb;pd;kh;	1
 躹	jū;um;um;uj;;hd;zp;tm;	1
-車	jū;iu;al;aa;ds;jj;yc;lg;	1
 鋦	jú;jk;jk;jj;;cr;zd;qn;	1
 鋸	jū;jg;jk;jj;;cr;zc;qn;	1
 驕	jū;mk;mk;mq;;sb;nd;ct;	1
