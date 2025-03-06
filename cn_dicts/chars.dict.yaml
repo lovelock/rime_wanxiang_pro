@@ -3,7 +3,7 @@
 #https://github.com/amzxyz/RIME-LMDG
 ---
 name: chars
-version: "2025-03-05 15:43"
+version: "2025-03-06 11:40"
 sort: by_weight
 ...
 啊	a;kk;kk;ka;oj;rr;dz;kb;kk	915
@@ -23784,7 +23784,7 @@ sort: by_weight
 蠻	mán;xi;yi;is,yi;;vi;sc;xy;	428
 缦	màn;sy;sy;sm;el;ve;ir;xj;sy	392
 満	mǎn;dl;dk;du;;eb,xb;km;ia;	391
-谩	mán;yy;yy;ym;cl;ie;sr;yj;yy	323
+谩	màn;yy;yy;ym;cl;ie;sr;yj;yy	323
 鬘	mán;ey;ay;im;dl;se;pr;de;iy	321
 鰻	mán;yy;ay;ym;;ne;wr;qo;	301
 謾	mán;yy;wy;ym;;ye;sr;yj;	293
@@ -23814,6 +23814,7 @@ sort: by_weight
 鏝	màn;jy;jy;jm;;ce;zr;qj;	50
 澷	màn;dw;df;df;;es;kl;ij;	38
 鬗	mán;er;ar;ir;;sb;pm;de;	23
+谩	mán;yy;yy;ym;cl;ie;sr;yj;yy	1
 㵘	màn;uu;uu;uu;;ee;kk;ii;	1
 㬅	màn;ow;ow;of;;as;op;jl;	1
 㒼	mán;cr;nr;cr;;to;lm;am;	1
@@ -23891,7 +23892,6 @@ sort: by_weight
 𫞜	mǎn;;dd,dy	1
 嫚	mān;ny;ny;nm;yl;ve;br;vj;ny	1
 蔓	mán;cy;cy;cm;zl;te;lr;aj;cy	1
-谩	màn;yy;yy;ym;cl;ie;sr;yj;yy	1
 忙	máng;xw;xw;xw;nr;pv;hf;ny;xw	686
 芒	máng;cw;cw;cw;zr;tv;lf;ay;cw	624
 盲	máng;wo;wo;ow;is;yu;fq;yn;wm	623

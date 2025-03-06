@@ -1977,7 +1977,6 @@ local function days_until(target_date)
   return diff  -- 返回天数差
 end
 -- 获取即将到来的节日（公历和农历）
--- 获取即将到来的节日（公历和农历）
 local function get_upcoming_holidays()
   local upcoming_holidays = {}
   local current_year = os.date("%Y")
@@ -1993,8 +1992,6 @@ local function get_upcoming_holidays()
       table.insert(upcoming_holidays, {holiday, formatted_date, days_left})
     end
   end
-
-  -- 处理农历节日
   -- 处理农历节日
   for holiday, lunar_date in pairs(lunar_holidays) do
     local days_ymd = os.date("%Y%m%d")  -- 获取当前年月日
@@ -2227,24 +2224,12 @@ local function translator(input, seg, env)
         -- 计算距离某个节气的天数
         local function days_until_jieqi(jieqi)
             local jieqi_date = jieqi:match("(%d+-%d+-%d+)$")  -- 提取节气日期部分
-            local target_time = os.time({
-                year = tonumber(jieqi_date:sub(1, 4)), 
-                month = tonumber(jieqi_date:sub(6, 7)), 
-                day = tonumber(jieqi_date:sub(9, 10))
-            })
-        
-            local diff_days = math.floor((target_time - now) / (24 * 3600)) + 1
-        
-            -- 确保今天是节气时 diff_days == 0
-            if os.date("%Y%m%d", target_time) == os.date("%Y%m%d", now) then
-                return 0  -- 今天正好是节气
-            end
-        
+            local target_time = jieqi_date:gsub("-", "")
+			local diff_days = days_until(target_time)
             return diff_days
         end
-        
-        -- 遍历最近的 3 个节气
-        for i = 1, math.min(3, #jqs) do
+        -- 遍历候选中最近的 4 个节气，原因是上面向后计算了一个节气
+        for i = 1, math.min(4, #jqs) do
             local jieqi = jqs[i]
             local diff_days = days_until_jieqi(jieqi)
         
@@ -2255,14 +2240,13 @@ local function translator(input, seg, env)
                 table.insert(upcoming_jqs, jieqi)
             end
         end
-        
         -- 处理 upcoming_jqs 选取逻辑
         if zero_jieqi then
             -- **今天是节气，取后两个节气**
-            upcoming_jqs = {upcoming_jqs[1], upcoming_jqs[2]}
+            upcoming_jqs = {jqs[3], jqs[4]}
         else
             -- **今天不是节气，取前两个节气**
-            upcoming_jqs = {jqs[1], jqs[2]}
+            upcoming_jqs = {jqs[2], jqs[3]}
         end
         
         -- 获取每个节气的距离天数
