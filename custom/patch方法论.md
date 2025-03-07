@@ -133,3 +133,15 @@ patch:
   custom_phrase/user_dict:
   custom_phrase/initial_quality:
 ```
+
+最后还要注意一点，非常重要：
+
+在engine模块下面的选项是有顺序的，所以想要新增一个行，需要判断添加到末尾是否可以用，如果是一个引导器就不能下面这样添加，这会导致这一行排列在最后，导致功能不能是用
+
+```
+#追加新的内容
+patch:
+  engine/translators/+:
+    - table_translator@custom_phrase
+```
+
