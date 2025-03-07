@@ -2225,7 +2225,7 @@ local function translator(input, seg, env)
         local function days_until_jieqi(jieqi)
             local jieqi_date = jieqi:match("(%d+-%d+-%d+)$")  -- 提取节气日期部分
             local target_time = jieqi_date:gsub("-", "")
-			local diff_days = days_until(target_time)
+            local diff_days = days_until(target_time)
             return diff_days
         end
         -- 遍历候选中最近的 4 个节气，原因是上面向后计算了一个节气
@@ -2325,9 +2325,14 @@ local function translator(input, seg, env)
         local greeting = get_greeting()  -- 获取问候语
         -- 进度条格式化
         local function generate_progress_bar(percentage)
-            local filled_blocks = math.floor(percentage / 10)
-            local empty_blocks = 10 - filled_blocks
-            return string.rep("▓", filled_blocks) .. string.rep("▒", empty_blocks) .. string.format(" %.1f%%", percentage)
+            percentage = math.min(100, math.max(0, percentage))  -- 限制百分比在0-100
+            local total_blocks = 10
+            local filled_blocks = math.floor((percentage / 100) * total_blocks + 0.5)  -- 四舍五入计算块数
+            local empty_blocks = total_blocks - filled_blocks
+            
+            return string.rep("▓", filled_blocks)
+                .. string.rep("▒", empty_blocks)
+                .. string.format(" %.1f%%", percentage)
         end
         local progress_bar = generate_progress_bar(year_progress)
         -- 生成自定义长度的符号线
@@ -2336,27 +2341,27 @@ local function translator(input, seg, env)
         end
         
         -- 你可以根据需要调整长度
-        local line = generate_line(15)  -- 控制符号线的宽度为 50
+        local line = generate_line(14)  -- 控制符号线的宽度为 50
         -- 生成最终信息字符串
         local summary = 
-            string.format("🌟嗨，我是万象小助手，%s\n", greeting) ..
+            string.format("※嗨，我是万象小助手，%s\n", greeting) ..
             line .. "\n" ..
-            string.format("📅今天是：%s %s\n",  zero_holiday or "", zero_jieqi or "") ..
-            string.format("📅%d年%02d月%02d日 %s\n", year, month, day, week_day_str) ..
-            string.format("📅农历：%s\n", lunar_info_str) ..
+            string.format("☉今天是：%s %s\n",  zero_holiday or "", zero_jieqi or "") ..
+            string.format("☉%d年%d月%d日 %s\n", year, month, day, week_day_str) ..
+            string.format("☉农历：%s\n", lunar_info_str) ..
             line .. "\n" ..
-            string.format("📊 %d进度：\n", year) ..
-            string.format("📌%s\n",progress_bar) ..
-            string.format("🎈本年第[ %d ]周，本月第[ %d ]周\n", week_of_year, week_of_month) ..
-            string.format("🎈距 %d 年： [ %d ]天\n", next_year, diff_days_next_year) ..
-            string.format("🎈今年已过[ %d ]天\n", day_of_year - 1) ..
-            string.format("🎈今天是第[ %d ]天\n", day_of_year) ..
+            string.format("◉%d进度：\n", year) ..
+            string.format("◈%s\n",progress_bar) ..
+            string.format("◈本年第[ %d ]周，本月第[ %d ]周\n", week_of_year, week_of_month) ..
+            string.format("◈距 %d 年： [ %d ]天\n", next_year, diff_days_next_year) ..
+            string.format("◈今年已过[ %d ]天\n", day_of_year - 1) ..
+            string.format("◈今天是第[ %d ]天\n", day_of_year) ..
             line .. "\n" ..
-            string.format("⏳ 倒数日：\n") ..
-            string.format("🎈 %s %s < [ %d ]天\n", holiday_data[1][1], holiday_data[1][2], holiday_data[1][3]) .. 
-            string.format("🎈 %s %s < [ %d ]天\n", holiday_data[2][1], holiday_data[2][2], holiday_data[2][3]) ..
-            string.format("🎈 %s < [ %d ]天\n", upcoming_jqs[1], jieqi_days[1]) ..
-            string.format("🎈 %s < [ %d ]天", upcoming_jqs[2], jieqi_days[2])
+            string.format("◉ 倒数日：\n") ..
+            string.format("◈ %s %s < [ %d ]天\n", holiday_data[1][1], holiday_data[1][2], holiday_data[1][3]) .. 
+            string.format("◈ %s %s < [ %d ]天\n", holiday_data[2][1], holiday_data[2][2], holiday_data[2][3]) ..
+            string.format("◈ %s < [ %d ]天\n", upcoming_jqs[1], jieqi_days[1]) ..
+            string.format("◈ %s < [ %d ]天", upcoming_jqs[2], jieqi_days[2])
         -- 使用 generate_candidates 函数生成候选项
         local candidates = {
             {summary, "日期信息整合"}
