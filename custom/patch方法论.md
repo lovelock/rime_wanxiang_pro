@@ -145,3 +145,11 @@ patch:
     - table_translator@custom_phrase
 ```
 
+应该使用**特定行追加**  engine/translator/@5 意思就是放到filters下面的第六行
+
+```
+patch:
+  engine/translator/@5:
+    table_translator@custom_phrase   #注意前面不能加短线了这样才是一个值，而不是一个表
+```
+
