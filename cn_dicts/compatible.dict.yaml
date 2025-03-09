@@ -4,7 +4,7 @@
 #兼容词库，对于多字词汇两种读音的场景，手动维护到本表以及一些其他的杂项
 ---
 name: compatible
-version: "2025-03-08 14:08"
+version: "2025-03-09 23:24"
 sort: by_weight
 ...
 长点儿	cháng;pn;pn;pd;uh;po;pc;ta;pn diǎn;vh;lh;hv;pn;yf,xf;yc;hk;ve ér;pv;pv;pg;kk;lu;pe;qt;pv	293
@@ -821,7 +821,7 @@ sort: by_weight
 我这下	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx xià;ab;ab;ab,ad;dh;my;fy;gh;ab	254
 我这样	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx yàng;my;my;my;wp;dq;eg;su;ly	593
 我这有	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx yǒu;uo;uo;ou,uo;sl;kb;nv;de;ao	383
-我这正	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèing;av;av;av;dr;mm;fs;gh;av	199
+我这正	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèng;av;av;av;dr;mm;fs;gh;av	199
 我这种	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhǒng;hv;hv;hv;up;hl;xg;tk;hv	618
 我这周	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhōu;kk;kk;kj,kk;oo,uo;br;md;mf;pk	330
 我这组	wǒ;ga;pd;pd,pp;uh,ud;hi,zz;tp;tr;pg zhèi;zw;zw;zw;jq;yk;vu;yp;zx zǔ;sq;sq;sq;eu;vm;if;xe;sq	142
@@ -1223,7 +1223,7 @@ sort: by_weight
 这个早	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zǎo;ou;ou;ou;vs;aj;on;jh;ou	277
 这个站	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zhàn;lv;lk;lv;bo;yr;id;uh;lk	402
 这个真	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zhēn;ub;ub;uj;sf;jc;nh;fh;ub	483
-这个证	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zhèing;yv;yv;yv;cr;im;ss;yg;yv	463
+这个证	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zhèng;yv;yv;yv;cr;im;ss;yg;yv	463
 这个值	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zhí;rq;rq;rv;xd,xu;om;jf;wf;rv	487
 这个周	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zhōu;kk;kk;kj,kk;oo,uo;br;md;mf;pk	334
 这个字	zhèi;zw;zw;zw;jq;yk;vu;yp;zx ge;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra zì;bz;bz;bz;ia;jd;wh;pb;gz	601
@@ -1296,7 +1296,7 @@ sort: by_weight
 这回忆	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huí;kk;kk;kk;no;wr;rd;lk;wk yì;xv;xv;xy;nr;pn;ha;nn;xy	215
 这会在	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huì;ry;rs;ry;ep;oi;jb;wf;rv zài;ut;ut;ta,ut;sg;kg;ng;dh;at	337
 这徽章	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huī;rx;iw;xw;hj;hk;wh;tm;rw zhāng;lu;lu;lz;cs;yj;xn;uj;lu	126
-这会正	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huì;ry;rs;ry;ep;oi;jb;wf;rv zhèing;av;av;av;dr;mm;fs;gh;av	203
+这会正	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huì;ry;rs;ry;ep;oi;jb;wf;rv zhèng;av;av;av;dr;mm;fs;gh;av	203
 这会子	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huì;ry;rs;ry;ep;oi;jb;wf;rv zǐ;la;va;aa,vh;aa;nd;hi;bb;va	322
 这回子	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huí;kk;kk;kk;no;wr;rd;lk;wk zǐ;la;va;aa,vh;aa;nd;hi;bb;va	146
 这回做	zhèi;zw;zw;zw;jq;yk;vu;yp;zx huí;kk;kk;kk;no;wr;rd;lk;wk zuò;rw;rw;rg;xj;ok;jh;wd;rw	120
@@ -1654,7 +1654,7 @@ sort: by_weight
 这是由	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shì;oz;or;op,ov;ve;ao;ot;jg;or yóu;ol,lt;la;aa,ao;vp;lw;dy;mh;aa	554
 这是咋	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shì;oz;or;op,ov;ve;ao;ot;jg;or zǎ;kv;kv;kv;ou;rs;dw;kt;kv	282
 这是在	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shì;oz;or;op,ov;ve;ao;ot;jg;or zài;ut;ut;ta,ut;sg;kg;ng;dh;at	633
-这是正	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shì;oz;or;op,ov;ve;ao;ot;jg;or zhèing;av;av;av;dr;mm;fs;gh;av	265
+这是正	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shì;oz;or;op,ov;ve;ao;ot;jg;or zhèng;av;av;av;dr;mm;fs;gh;av	265
 这首词	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shǒu;bz;bz;qz;fs;tu;ho;ut;em cí;yk;yk;ys;co;ir;sd;yn;yk	479
 这首歌	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shǒu;bz;bz;qz;fs;tu;ho;ut;em gē;kq;dr;qg;je;mo;ze;sk;gr	714
 这手机	zhèi;zw;zw;zw;jq;yk;vu;yp;zx shǒu;pf;pl;pa,ub;oo;qq;us;rt;pv jī;mj;mj;mj;wi;dn;eo;sm;lj	484
@@ -2002,7 +2002,7 @@ sort: by_weight
 这一仗	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yí;aa;aa;aa;dd;mm;fi;gg;aa zhàng;rv;rv;rv;xh;ok;jb;wd;rv	426
 这一掌	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yì;aa;aa;aa;dd;mm;fi;gg;aa zhǎng;xu;xu;uk,xu,du;ho;fq;su;ip;eu	267
 这一招	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yì;aa;aa;aa;dd;mm;fi;gg;aa zhāo;fk;fk;fv;jo;qr;ud;rv;fk	535
-这一阵	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yí;aa;aa;aa;dd;mm;fi;gg;aa zhèin;ei;ei;ei;bt;nq;ty;bl;ei	365
+这一阵	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yí;aa;aa;aa;dd;mm;fi;gg;aa zhèn;ei;ei;ei;bt;nq;ty;bl;ei	365
 这一帧	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yí;aa;aa;aa;dd;mm;fi;gg;aa zhēn;jb;jr;jv;ym;lo;ro;mh;jr	238
 这一支	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yì;aa;aa;aa;dd;mm;fi;gg;aa zhī;uy;uy;uy;sl;je;ci;fc;uy	432
 这一只	zhèi;zw;zw;zw;jq;yk;vu;yp;zx yì;aa;aa;aa;dd;mm;fi;gg;aa zhī;kb;kb;kb;of;rc;dh;kw;kb	399
@@ -2035,11 +2035,11 @@ sort: by_weight
 这张牌	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhāng;gi;gi;gi;rh;no;bp;xt;gi pái;pu;pu;pb;us;lj;an;th;pu	464
 这张图	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhāng;gi;gi;gi;rh;no;bp;xt;gi tú;kd;kd;kd;nh;wy;rw;lt;wd	651
 着这座	zhe;yo;yo;yo;fs;tu;gq;ud;em zhèi;zw;zw;zw;jq;yk;vu;yp;zx zuò;gr;gt;gz;rg;ig;xg;yw;gt	378
-这阵容	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèin;ei;ei;ei;bt;nq;ty;bl;ei róng;bg;bk;bg;io;jr;wh;pw;gk	363
+这阵容	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèn;ei;ei;ei;bt;nq;ty;bl;ei róng;bg;bk;bg;io;jr;wh;pw;gk	363
 这真是	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhēn;ub;ub;uj;sf;jc;nh;fh;ub shì;oz;or;op,ov;ve;ao;ot;jg;or	590
-这阵子	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèin;ei;ei;ei;bt;nq;ty;bl;ei zi;la;va;aa,vh;aa;nd;hi;bb;va	436
-这正如	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèing;av;av;av;dr;mm;fs;gh;av rú;nk;nk;nk;yo;vr;bd;vk;nk	383
-这正是	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèing;av;av;av;dr;mm;fs;gh;av shì;oz;or;op,ov;ve;ao;ot;jg;or	609
+这阵子	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèn;ei;ei;ei;bt;nq;ty;bl;ei zi;la;va;aa,vh;aa;nd;hi;bb;va	436
+这正如	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèng;av;av;av;dr;mm;fs;gh;av rú;nk;nk;nk;yo;vr;bd;vk;nk	383
+这正是	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhèng;av;av;av;dr;mm;fs;gh;av shì;oz;or;op,ov;ve;ao;ot;jg;or	609
 这之间	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhī;dn;dn;dd;hh;io;ri;pp;dn jiān;mo;mo;mo,om;ov;la;ao;uj;mo	423
 这之类	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhī;dn;dn;dd;hh;io;ri;pp;dn lèi;md;md;md;lx;fk;pm;od;md	180
 这只猫	zhèi;zw;zw;zw;jq;yk;vu;yp;zx zhǐ;kb;kb;kb;of;rc;dh;kw;kb māo;qt;qt;qm;bw;kw;mq;qt;qt	489
