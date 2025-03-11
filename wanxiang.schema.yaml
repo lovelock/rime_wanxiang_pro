@@ -370,10 +370,8 @@ key_binder:
 # 使用 tab 在不同音节之间跳转
     - { when: has_menu, accept: "Tab", send: "Control+Right" }
     - { when: composing, accept: "Tab", send: "Control+Right" }
-#通过stick.lua显示到注释里，用来上屏带/的简码词汇。最好是用句号，这样可以与手机上可以做同样的定义，保持同样的习惯
-#    - { match: "[a-z]{1,3}", accept: ".",  send_sequence: "/1" } 
-#通过排序lua将辅助码匹配的单字前置，四码时候前面有词，想要上屏单字就差一个/对吧，此时通过如下设置省去空格直接前置并上屏
-    - { match: "[a-z]{4}", accept: "/",  send_sequence: "/1" } 
+#通过super_tips.lua显示到提示框里，用来上屏带/的简码、表情、化学式等等。四码时候前面有词，想要上屏单字也是用/，最好是用句号，这样可以与手机上可以做同样的定义，保持同样的习惯
+    - { match: "[a-z]{1,4}", accept: "/",  send_sequence: "/1" } 
 
 
 
