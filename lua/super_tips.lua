@@ -2,7 +2,7 @@
 --采用leveldb数据库,支持大数据遍历,支持多种类型混合,多种拼音编码混合,维护简单
 --支持候选匹配和编码匹配两种
 --https://github.com/amzxyz/rime_wanxiang_pro
---     - lua_processor@*super_tips               #超级提示模块：表情、简码
+--     - lua_processor@*super_tips               #超级提示模块：表情、简码、翻译、化学式
 --     key_binder/tips_key: "slash"     参数配置
 local _db_pool = _db_pool or {}  -- 数据库池
 
@@ -50,18 +50,27 @@ function M.func(key, env)
     local engine = env.engine
     local context = env.engine.context
     local segment = env.engine.context.composition:back()
+    
+    -- 检查 segment 是否有效
+    if not segment then
+        return 2  -- 如果 segment 无效，直接返回
+    end
+
     local input_text = env.engine.context.input
     env.settings = {super_tips = env.engine.context:get_option("super_tips")} or true
     local is_super_tips = env.settings.super_tips
+
     -- 从数据库中查询与输入文本匹配的词条
     local db = wrapLevelDb('tips', false)  -- 只读模式打开数据库
     local stick_phrase = db:fetch(input_text)
+
     -- 获取选中候选词
     local selected_cand = context:get_selected_candidate()
     local selected_cand_match = nil
     if selected_cand then
         selected_cand_match = db:fetch(selected_cand.text)
     end
+
     -- 确定最终提示
     local tips = stick_phrase or selected_cand_match
     -- 如果启用了超级提示，并且有提示内容，更新提示
@@ -77,14 +86,14 @@ function M.func(key, env)
         if context:get_selected_candidate() then
             text = context:get_selected_candidate().text
         end
-
-            -- 按下时直接检查键值
+        -- 按下时直接检查键值
         if (key:repr() == M.tips_key) then
-            local formatted_commit_text = tips:match("^.*[：:](.*)") or tips  --最终上屏字符串是去掉提示类型的有效内容,兼容中英文冒号作为分割
+            local formatted_commit_text = tips:match("^[^：:]*[：:](.*)") or tips  --最终上屏字符串是去掉提示类型的有效内容,兼容中英文冒号作为分割
+                formatted_commit_text = formatted_commit_text:sub(3)
             engine:commit_text(formatted_commit_text)
             context:clear()
             return 1
-         end
+        end
     end
     return 2
 end
