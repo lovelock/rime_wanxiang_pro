@@ -37,6 +37,9 @@ patch:
       states: [ 简, 繁 ]
     - name: full_shape
       states: [ 半, 全 ]
+    - name: super_tips
+      states: [ off, tips ]
+      reset: 1
     - name: emoji
       states: [ 💀, 😄 ]
       reset: 1
@@ -64,6 +67,7 @@ patch:
       #- lua_processor@*select_character          # 以词定字，有了辅助码了，想开启可以注释掉
       - lua_processor@*cold_word_drop.processor
       - lua_processor@*quick_symbol_text    #快符引导以及重复上屏
+      - lua_processor@*super_tips           #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
       - lua_processor@*userdb_sync_delete   #通过输入 /del 触发,用于清理自定义同步目录下txt用户词典里被标记c<0的词条
       - ascii_composer
       - recognizer
@@ -90,7 +94,6 @@ patch:
       - lua_translator@*unicode            # Unicode
       - lua_translator@*number_translator  # 数字、金额大写
       - lua_translator@*calculator        # 计算器
-      - table_translator@tips_text        # 超级简码、emoji、化学式等等
       - table_translator@custom_phrase    # 自定义短语 custom_phrase.txt
       - table_translator@melt_eng         # 英文输入
       - table_translator@cn_en            # 中英混合词汇
@@ -113,7 +116,6 @@ patch:
       - simplifier@chinese_english                    #中英翻译
       - lua_filter@*search@radical_pinyin             # 部件拆字辅码放在简繁转换之后
       - lua_filter@*super_comment                     #超级注释模块，支持错词提示、辅助码显示，部件组字读音注释，支持个性化配置和关闭相应的功能，详情搜索super_comment进行详细配置
-      - lua_filter@*super_tips                        #超级提示模块：表情、简码
       #- simplifier@moqi_chaifen                       #墨奇拆分型辅助码查询，放在超级注释后面
       #- simplifier@zrm_chaifen                        #自然码拆分型辅助码查询，放在超级注释后面
       - uniquifier                                    # 去重
@@ -124,14 +126,6 @@ patch:
     corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
   ########################以下是方案配置######################################################
   
-  #超级简码、emoji、化学式等等
-  tips_text:
-    dictionary: ""
-    user_dict: jm_dicts/tips_text
-    db_class: stabledb
-    enable_sentence: false
-    enable_completion: false
-    initial_quality: 1.2 #本表词和系统词重码居后
   # Lua 配置：计算器触发关键字
   calculator:
     trigger: "V"
@@ -220,8 +214,7 @@ patch:
     initial_quality: 1.1     # 初始权重
     comment_format:          # 自定义提示码
       - xform/.*//           # 清空提示码
-  
-  
+
   # 中英混合词汇
   cn_en:
     dictionary: ""
@@ -232,8 +225,6 @@ patch:
     initial_quality: 0.5
     comment_format:
       - xform/^.+$//
-  
-  
   
   # Emoji
   emoji:
@@ -328,6 +319,8 @@ patch:
   # 从 default 继承快捷键
   key_binder:
     import_preset: default  # 从 default.yaml 继承通用的
+    # Lua 配置: 超级tips上屏按键
+    tips_key: "slash"   #修改时候去default找
     search: "`"             # 辅码引导符，要添加到 speller/alphabet
     bindings:             # 也可以再增加方案专有的
       #- { when: composing, accept: Tab, send: '[' } ## 取消注释后：tab引导辅助码
@@ -345,6 +338,8 @@ patch:
       - { when: has_menu, accept: "Control+s", toggle: tone_display }
   #通过快捷键Control+g开启字符集过滤
       - { when: has_menu, accept: "Control+g", toggle: charset_filter }
+#通过快捷键Control+t开启超级tips
+      - { when: has_menu, accept: "Control+t", toggle: super_tips }
   # 使用 tab 在不同音节之间跳转
       - { when: has_menu, accept: "Tab", send: "Control+Right" }
       - { when: composing, accept: "Tab", send: "Control+Right" }
