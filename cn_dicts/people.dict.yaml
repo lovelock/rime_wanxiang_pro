@@ -5,7 +5,7 @@
 #^(?!.*阿姨|.*爸爸|.*伯伯|.*老师|.*村|.*乡|.*镇|.*老|.*宅|.*店|.*家|.*爷爷|.*奶奶|.*大人|.*先生|.*女士)[夏|宋|徐|丁|崔|白|梁|岳|段|赵|钱|孙|李|周|吴|郑|王|冯|秦|陈|杜|褚|卫|蒋|沈|韩|杨|朱|尤|许|何|吕|张|孔|曹|严|华|金|魏|陶|江|姜|苏|鲁|罗|雷|黄|马|叶]..\t.*\t[1-9][0-3][0-9]{2}$\n
 ---
 name: people
-version: "2025-03-12 19:55"
+version: "2025-03-13 23:03"
 sort: by_weight
 ...
 白波	bái;po;po;pa,po;ss;ha;ub;rr;po bō;dp;dy;dp;kl;ee;kr;ih;dy	375
@@ -39901,6 +39901,13 @@ sort: by_weight
 南佳奈星	nán;ug;ug;ua,uy;sp;jj;ng;fm;uu jiā;rt;rt;rg;xg;og;jg;wf;rt nài;du;dx;du;xf;kf;mf;df;dx xīng;ou;ou;ou;va;am;ol;jt;ou	1
 尼崎加奈	ní;ub;ub;ub;qa;sp;cv;nx;ub qí;uk;ek;uq;pj;ur;vz;md;sk jiā;lk;lk;lk,kl;uo;kr;sd;lk;lk nài;du;dx;du;xf;kf;mf;df;dx	1
 片冈真央	piàn;pv;pv;pa,pv;ur;ll,ln;ap;th;pv gāng;kx;kx;ki;oy;bk;mb;mq;ax zhēn;ub;ub;uj;sf;jc;nh;fh;ub yāng;kr;lg;ad,kd;pe;lk;mm;md;an	1
+齐木公旺	qí;wl;wl;wa,wp;jp;yl;qq;yj;wa mù;ur;un;ad;ww;dd;em;ss;un gōng;bs;bs;sb,bs;fp;ci;hk;wc;bv wàng;ow;ow;ow;va;ag;on;jg;ow	58
+齐木国春	qí;wl;wl;wa,wp;jp;yl;qq;yj;wa mù;ur;un;ad;ww;dd;em;ss;un guó;ky;ky;ky;nh;wi;ri;lg;wy chūn;io;fo;of,fo;uv;qa;ao;dw;ao	92
+齐木弘吉	qí;wl;wl;wa,wp;jp;yl;qq;yj;wa mù;ur;un;ad;ww;dd;em;ss;un hóng;gs;gs;gs;rp;ni,xi;bk;xc;gv jí;tk;uk;ku,uk;go;gr;gd;fk;uk	35
+齐木空助	qí;wl;wl;wa,wp;jp;yl;qq;yj;wa mù;ur;un;ad;ww;dd;em;ss;un kōng;bg;bg;xg,bg;ip;jm;eu;pw;gg zhù;ql;ql;lq,ql;pu;bs;fs;eg;ql	77
+齐木美帆	qí;wl;wl;wa,wp;jp;yl;qq;yj;wa mù;ur;un;ad;ww;dd;em;ss;un měi;yd;yd;dy,yd;fx;tk;gm;ug;ed fān;jf;jf;jf;yh;li;ri;mh;jf	58
+齐木楠雄	qí;wl;wl;wa,wp;jp;yl;qq;yj;wa mù;ur;un;ad;ww;dd;em;ss;un nán;mg;mg;mn;wp;dj;eg;sf;lu xióng;uv;uf;vh,vs;sa;kg;nu;dc;aa	323
+齐木昭隆	qí;wl;wl;wa,wp;jp;yl;qq;yj;wa mù;ur;un;ad;ww;dd;em;ss;un zhāo;ok;ok;ov;vo;ar;od;jv;ok lóng;eu;eu;eu;bg;nm;tl;bt;eu	125
 斉藤浩子	qí;wo;we;dh,we;;yl;qq;yj; téng;cu;cu;ct;zo;te;lk;ae;cu hào;dk;dk;dg;ko;er;kd;it;dk zǐ;la;va;aa,vh;aa;nd;hi;bb;va	1
 斉藤恒夫	qí;wo;we;dh,we;;yl;qq;yj; téng;cu;cu;ct;zo;te;lk;ae;cu héng;xd;xa;xg;nd;pm;hf;ng;xd fū;er;an;ad,er;ee;qo;hf;fw;an	1
 斉藤弘胜	qí;wo;we;dh,we;;yl;qq;yj; téng;cu;cu;ct;zo;te;lk;ae;cu hóng;gs;gs;gs;rp;ni,xi;bk;xc;gv shèng;ou;ou;ou;lg;bm;vl;et;ou	1

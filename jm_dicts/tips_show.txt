@@ -4062,7 +4062,6 @@ S$	新加坡币
 表情：🅱️	B型
 表情：🅱️	B型血
 表情：🅱️	B血型
-表情：🅾️	O
 表情：🅾️	O型
 表情：🅾️	O型血
 表情：🅾️	O血型
@@ -4726,7 +4725,6 @@ S$	新加坡币
 表情：🏴󠁧󠁢󠁥󠁮󠁧󠁿	英格兰
 表情：🏴󠁧󠁢󠁳󠁣󠁴󠁿	苏格兰
 表情：🏴󠁧󠁢󠁷󠁬󠁳󠁿	威尔士
-翻译：art.一;字母A	a
 翻译：n.土猪	aardvark
 翻译：n.土狼	aardwolf
 翻译：n.秃鹰之一种	aasvogel
@@ -7645,7 +7643,6 @@ S$	新加坡币
 翻译：n.阿芝特克人;阿芝特克语 a.阿芝特克人的	Aztec
 翻译：n.天蓝色;碧空 a.蔚蓝的	azure
 翻译：n.蓝铜矿	azurite
-翻译：n.字母B	b
 翻译：n.羊叫声 vi.叫	baa
 翻译：n.太阳神	Baal
 翻译：n.巴尔神崇拜;偶像崇拜	Baalism
@@ -10015,7 +10012,6 @@ S$	新加坡币
 翻译：a.Byzantium的;东罗马帝国的;拜占庭式的 n.拜占庭人;拜占庭派的建筑师;画家	byzantine
 翻译：n.拜占庭	Byzantium
 翻译：n.调味酱	béchamel
-翻译：n.字母C	c
 翻译：n.计程车;出租汽车;出租单马车 vi.乘出租马车	cab
 翻译：n.徒党;秘密结社;(尤指政治上的)阴谋 vi.策划阴谋	cabal
 翻译：n.犹太神秘哲学;秘法	cabala
@@ -16557,7 +16553,6 @@ S$	新加坡币
 翻译：n.镝	dysprosium
 翻译：n.难产	dystocia
 翻译：n.排尿困难	dysuria
-翻译：n.字母e	e
 翻译：a.每个;每;每一 ad.每个 pron.每个;个人;个自	each
 翻译：a.热心的;渴望的;热望的	eager
 翻译：eagerness nis: n.网络信息服务(NetworkInformationServices) n.热心	eagerness
@@ -18341,7 +18336,6 @@ S$	新加坡币
 翻译：n.目击者	eyewitnes
 翻译：n.目击者	eyewitness
 翻译：n.以斯拉;以斯拉记	Ezra
-翻译：n.字母f	f
 翻译：a.惊人的;难以置信的	fab
 翻译：a.豆的	fabaceous
 翻译：a.费边式的;拖延时间的; n.费边主义	fabian
@@ -20184,7 +20178,6 @@ S$	新加坡币
 翻译：n.马勃科菌	fuzzball
 翻译：a.有微毛的;失真的;模糊的	fuzzy
 翻译：a.希腊十字形;万字形	fylfot
-翻译：n.字母g	g
 翻译：n.饶舌;爱说话;多嘴 vi.空谈;瞎扯;唠叨	gab
 翻译：n.一种斜纹防水布料;华达呢;一种宽松的长袍	gabardine
 翻译：n.唠叨的人	gabber
@@ -25595,7 +25588,6 @@ S$	新加坡币
 翻译：n.苏格兰高地产的长角种小牛	kyloe
 翻译：n.波动曲线记录仪	kymograph
 翻译：n.京都	Kyoto
-翻译：n.字母l	l
 翻译：n.车阵 vt.布车阵 vi.宿营于车阵中	laager
 翻译：n.实验室;研究室;	lab
 翻译：n.动摇;衰弱;衰微	labefaction
@@ -26943,7 +26935,6 @@ S$	新加坡币
 翻译：n.Lysenko学说	lysenkoism
 翻译：n.细胞溶解酶	lysin
 翻译：n.赖氨酸	lysine
-翻译：n.字母m	m
 翻译：n.妈	ma
 翻译：n.媒体存取控制	mac
 翻译：a.以死亡为主题的;可怕的	macabre
@@ -29225,7 +29216,6 @@ S$	新加坡币
 翻译：n.神话	mythology
 翻译：n.神话;主题	mythos
 翻译：n.家务	ménage
-翻译：n.字母n	n
 翻译：vt.捉住;逮捕;抢夺	nab
 翻译：n.居住区内的电影院	nabe
 翻译：n.拿伯	naboth
@@ -31192,7 +31182,6 @@ S$	新加坡币
 翻译：vi.变成臭氧 vt.以臭氧处理;使含臭氧	ozonize
 翻译：n.臭氧发生器;臭氧管	ozonizer
 翻译：n.臭氧层	ozonosphere
-翻译：n.字母p	p
 翻译：n.食物;营养;精神食粮	pabulum
 翻译：n.速度;步调;步法 vi.踱步;缓慢的走 vt.用步测;踱步于	pace
 翻译：n.带步人;标兵;起搏器	pacemaker
@@ -34630,7 +34619,6 @@ S$	新加坡币
 翻译：n.圣体容器;货币检查箱 vt.放入货币检查箱检查	pyx
 翻译：n.盖果	pyxidium
 翻译：n.有盖瓶;小瓶	Pyxis
-翻译：n.字母q	q
 翻译：n.质量保证;问题和回答	qa
 翻译：n.Qbasic语言	qbasic
 翻译：n.由SemWare公司推出的英文编辑软件	qedit
@@ -37013,7 +37001,6 @@ S$	新加坡币
 翻译：a.遍地车辙的	rutty
 翻译：n.裸麦;黑麦;绅士	rye
 翻译：n.黑麦草	ryegrass
-翻译：n.字母s	s
 翻译：n.安息日	Sabbath
 翻译：a.安息日的;周期性休息的	sabbatical
 翻译：n.军刀;骑兵;骑兵队 vt.以军刀斩	saber
@@ -41489,7 +41476,6 @@ S$	新加坡币
 翻译：a.心脏收缩的	systolic
 翻译：n.会合;朔望	syzygy
 翻译：n.会议;会;降神会	séance
-翻译：n.字母t	t
 翻译：n.终端介面	ta
 翻译：n.制表[键];标号;调整片;小报;短小突出部;监督;记录;帐单 n.标签;制表符;TAB键 n.制表[键];标号;卡片设备	tab
 翻译：n.纹章战袍;传令所穿衣服;一种粗大衣	tabard
@@ -43625,7 +43611,6 @@ S$	新加坡币
 翻译：n.初学者;生手;新手	tyro
 翻译：n.提洛尔人 a.提洛尔的	Tyrolese
 翻译：n.匈牙利系吉普赛的	tzigane
-翻译：n.字母u	u
 翻译：n.在一定的场所;所在;位置	ubiety
 翻译：a.到处存在的;遍在的	ubiquitous
 翻译：n.到处存在;遍在;耶稣的遍在	ubiquity
@@ -44727,7 +44712,6 @@ S$	新加坡币
 翻译：a.悬壅垂的	uvular
 翻译：n.杀妻;杀妻者	uxoricide
 翻译：a.疼爱妻子的;怕老婆的	uxorious
-翻译：n.字母v	v
 翻译：n.空;空白;空缺;空虚;空闲;茫然所失	vacancy
 翻译：a.空的;空白的;空灵的;空闲的;茫然的;空缺的	vacant
 翻译：n.假期;休假	vacation
@@ -45448,7 +45432,6 @@ S$	新加坡币
 翻译：n.阴户;孔	vulva
 翻译：vi.发誓	vum
 翻译：a.竞争的 vbl.vie的现在分词	vying
-翻译：n.字母w	w
 翻译：n.古怪的人;怪人;奇特之人	wack
 翻译：n.玄土	wacke
 翻译：a.古怪的	wacky
