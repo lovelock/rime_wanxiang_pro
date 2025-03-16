@@ -116,7 +116,7 @@ function S.func(key, env)
     if (context:is_composing() or context:has_menu()) and (S.tips_key) and is_super_tips then
         -- 按下时直接检查键值
         if (key:repr() == S.tips_key) then
-            local formatted_commit_text = tips:match(".+：(.*)") or tips:match(".+:(.*)") or tips  --最终上屏字符串是去掉提示类型的有效内容,兼容中英文冒号作为分割
+            local formatted_commit_text = tips:match("〔.+：(.*)〕") or tips:match("〔.+:(.*)〕") or tips  --最终上屏字符串是去掉提示类型的有效内容,兼容中英文冒号作为分割
             engine:commit_text(formatted_commit_text)
             context:clear()
             return 1
