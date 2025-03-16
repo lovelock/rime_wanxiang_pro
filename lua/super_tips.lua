@@ -88,8 +88,7 @@ function M.func(key, env)
         end
         -- 按下时直接检查键值
         if (key:repr() == M.tips_key) then
-            local formatted_commit_text = tips:match("^[^：:]*[：:](.*)") or tips  --最终上屏字符串是去掉提示类型的有效内容,兼容中英文冒号作为分割
-                formatted_commit_text = formatted_commit_text:sub(3)
+            local formatted_commit_text = tips:match(".+：(.*)") or tips:match(".+:(.*)") or tips  --最终上屏字符串是去掉提示类型的有效内容,兼容中英文冒号作为分割
             engine:commit_text(formatted_commit_text)
             context:clear()
             return 1

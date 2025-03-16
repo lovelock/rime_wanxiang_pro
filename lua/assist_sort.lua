@@ -149,20 +149,21 @@ function M.func(input, env)
 
     else  -- **处理 input_len < 3 的情况**
         single_char_cands, alnum_cands, other_cands = {}, {}, {}
-
         for _, cand in ipairs(candidates) do
             local len = utf8.len(cand.text)
-            if is_alnum(cand.text) then
+            if len == 1 then
+                table.insert(single_char_cands, cand)
+            elseif is_alnum(cand.text) then
                 table.insert(alnum_cands, cand)
             else
                 table.insert(other_cands, cand)
             end
         end
-
-        -- **按照既定顺序输出**
+        for _, cand in ipairs(single_char_cands) do yield(cand) end
         for _, cand in ipairs(other_cands) do yield(cand) end
         for _, cand in ipairs(alnum_cands) do yield(cand) end
     end
 end
+
 
 return M
