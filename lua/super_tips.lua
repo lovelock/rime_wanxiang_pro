@@ -73,12 +73,21 @@ function M.func(key, env)
 
     -- 确定最终提示
     local tips = stick_phrase or selected_cand_match
+    
+    -- 维护上一次的 `tips` 记录
+    env.last_tips = env.last_tips or ""
+    
     -- 如果启用了超级提示，并且有提示内容，更新提示
-    if tips and tips ~= "" and is_super_tips then
-        -- 设置候选词提示内容
+    if is_super_tips and tips and tips ~= "" then
+        -- 记录当前 `tips`
+        env.last_tips = tips
+        -- 更新 `segment.prompt`
         segment.prompt = "〔" .. tips .. "〕"
     else
-        segment.prompt = ""  -- 没有提示内容时清空提示
+        -- 仅在 segment.prompt 仍然等于上次的 `tips` 时才清空，这样避免清空反查等模式的提示信息
+        if segment.prompt == "〔" .. env.last_tips .. "〕" then
+            segment.prompt = ""
+        end
     end
 
     if (context:is_composing() or context:has_menu()) and (M.tips_key) and is_super_tips then

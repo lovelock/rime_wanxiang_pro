@@ -395,9 +395,9 @@ speller:
 自然码: 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-    - xform/ń|ň|ǹ/en/ 
     - xform/^ng(;.*)/eng$1/
     - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
     - derive/^([jqxy])u(;.*)$/$1v$2/
     - derive/^([aoe])([ioun])(;.*)$/$1$1$2$3/
     - xform/^([aoe])(ng)?(;.*)$/$1$1$2$3/
@@ -494,9 +494,9 @@ speller:
 小鹤双拼: 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-    - xform/ń|ň|ǹ/en/ 
     - xform/^ng(;.*)/eng$1/
     - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
     - derive/^([jqxy])u(;.*)$/$1v$2/
     - derive/^([aoe])([ioun])(;.*)$/$1$1$2$3/
     - xform/^([aoe])(ng)?(;.*)$/$1$1$2$3/
@@ -531,9 +531,9 @@ speller:
 微软双拼: 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-    - xform/ń|ň|ǹ/en/ 
     - xform/^ng(;.*)/eng$1/
     - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
     - derive/^([jqxy])u(;.*)$/$1v$2/
     - derive/^([aoe].*)(;.*)$/o$1$2/
     - xform/^([ae])(.*)(;.*)$/$1$1$2$3/
@@ -571,9 +571,9 @@ speller:
 搜狗双拼: 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-    - xform/ń|ň|ǹ/en/ 
     - xform/^ng(;.*)/eng$1/
     - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
     - derive/^([jqxy])u(;.*)$/$1v$2/
     - derive/^([aoe].*)(;.*)$/o$1$2/
     - xform/^([ae])(.*)(;.*)$/$1$1$2$3/
@@ -610,9 +610,9 @@ speller:
 紫光: 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-    - xform/ń|ň|ǹ/en/ 
     - xform/^ng(;.*)/eng$1/
     - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
     - derive/^([jqxy])u(;.*)$/$1v$2/
     - xform/^([aoe].*)(;.*)$/Ⓞ$1$2/
     - xform/^(\w+?)en(;.*)$/$1Ⓦ$2/
@@ -647,9 +647,9 @@ speller:
 智能ABC: 
   __append:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-    - xform/ń|ň|ǹ/en/ 
     - xform/^ng(;.*)/eng$1/
     - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
     - xform/^([aoe].*)(;.*)$/Ⓞ$1$2/
     - xform/^(\w+?)ei(;.*)$/$1Ⓠ$2/
     - xform/^(\w+?)ian(;.*)$/$1Ⓦ$2/
@@ -715,7 +715,6 @@ fuzhu_zrm:  ########################################位于词库第三个分号�
     - xform|^(.*?);.*?;.*?;(.*?);.*$|$1;$2|  #匹配当前方案，转换为 双拼；辅助码（当前方案）的形式
 #以下是双拼运算
     - derive/^(.+);.*$/$1/ # 纯双拼的情况
-#分号后面第一组辅助码
 #分号后面第一组辅助码
     - abbrev/^(.+);(\w)(\w).*$/$1$2/ # 双拼+一位辅助码的情况
     - abbrev/^(.+);(\w)(\w).*$/$1$2$3/ # 双拼+2位辅助码的情况
