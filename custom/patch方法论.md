@@ -145,11 +145,13 @@ patch:
     - table_translator@custom_phrase
 ```
 
-应该使用**特定行追加**  engine/translator/@5 意思就是放到filters下面的第六行
+应该使用**特定行追加**  engine/translator/@before 5 意思就是放到filters下面的第六行
 
 ```
 patch:
-  engine/translator/@5:
+  engine/translator/@before 5:  #这种方式将在这一行后面新增一行，其它后移
+    table_translator@custom_phrase   #注意前面不能加短线了这样才是一个值，而不是一个表
+  engine/translator/@5:    #这种方式将替换这一行
     table_translator@custom_phrase   #注意前面不能加短线了这样才是一个值，而不是一个表
 ```
 

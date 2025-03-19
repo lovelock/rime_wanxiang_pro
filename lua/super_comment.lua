@@ -19,14 +19,12 @@
 -- 定义 fuzhu_type 与匹配模式的映射表
 local patterns = {
     tone = "([^;]*);",
-    moqi = "[^;]*;([^;]*);",
-    flypy = "[^;]*;[^;]*;([^;]*);",
-    zrm = "[^;]*;[^;]*;[^;]*;([^;]*);",
-    jdh = "[^;]*;[^;]*;[^;]*;[^;]*;([^;]*);",
-    cj = "[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;([^;]*);",
-    tiger = "[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;([^;]*);",
-    wubi = "[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;([^;]*);",
-    hanxin = "[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;([^;]*)"
+    hanxin = "[^;]*;([^;]*);",
+    moqi= "[^;]*;[^;]*;([^;]*);",
+    flypy = "[^;]*;[^;]*;[^;]*;([^;]*);",
+    zrm = "[^;]*;[^;]*;[^;]*;[^;]*;([^;]*);",
+    tiger = "[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;([^;]*);",
+    wubi = "[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;[^;]*;([^;]*)",
 }
 -- #########################
 -- # 错音错字提示模块 (Corrector)
@@ -201,12 +199,12 @@ function ZH.func(input, env)
     ZH.init(env)
     CR.init(env)
 
-	local seg = env.engine.context.composition:back()
-	env.is_radical_mode = seg and (
-		seg:has_tag("radical_lookup") 
-		or seg:has_tag("reverse_stroke") 
-		or seg:has_tag("add_user_dict")
-	) or false
+    local seg = env.engine.context.composition:back()
+    env.is_radical_mode = seg and (
+        seg:has_tag("radical_lookup") 
+        or seg:has_tag("reverse_stroke") 
+        or seg:has_tag("add_user_dict")
+    ) or false
 
     -- 遍历输入的候选词
     for cand in input:iter() do
