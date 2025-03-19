@@ -36,7 +36,6 @@ function M.run_fuzhu(cand, env, initial_comment)
 
     return full_fuzhu_list, first_fuzhu_list
 end
-
 -- **初始化**
 function M.init(env)
     local config = env.engine.schema.config
@@ -44,13 +43,10 @@ function M.init(env)
         fuzhu_type = config:get_string("pro_comment_format/fuzhu_type") or ""
     }
 end
-
--- **判断是否为字母或数字和特定符号**
+    -- **判断是否为字母或数字和特定符号**
 local function is_alnum(text)
-    return text:match("^.*[%w%s%.·%-_%'].*$") ~= nil
-    --return text:match("^[%w%s%.%-_%']+.*$") or text:match("^.*[%w%s%.%-_%']+$") ~= nil
+	return text:match("[%w%s.·-_']") ~= nil
 end
-
 -- **主逻辑**
 function M.func(input, env)
     local input_code = env.engine.context.input
@@ -70,13 +66,11 @@ function M.func(input, env)
         for _, cand in ipairs(candidates) do yield(cand) end
         return
     end
-
     -- **如果第一个候选是字母/数字，则直接返回默认候选**
     if first_cand and is_alnum(first_cand.text) then
         for _, cand in ipairs(candidates) do yield(cand) end
         return
     end
-
     local single_char_cands, alnum_cands, other_cands = {}, {}, {}
 
     if input_len >= 3 and input_len <= 4 then
@@ -133,7 +127,6 @@ function M.func(input, env)
                 end
             end
         end
-
         -- **动态排序逻辑**
         if has_match then
             for _, v in ipairs(other_cands) do yield(v) end
@@ -146,7 +139,6 @@ function M.func(input, env)
             for _, v in ipairs(moved) do yield(v) end
             for _, v in ipairs(reordered) do yield(v) end
         end
-
     else  -- **处理 input_len < 3 的情况**
         for _, cand in ipairs(candidates) do yield(cand) end
     end
