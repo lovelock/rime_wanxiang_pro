@@ -159,7 +159,7 @@ jobs:
             dist/6-tiger_dicts.zip
             dist/7-wubi_dicts.zip
             dist/8-hanxin_dicts.zip
-            10-wanxiang-lts-zh-hans.gram
+            wanxiang-lts-zh-hans.gram
           draft: false
           prerelease: false
           make_latest: true
