@@ -19,15 +19,13 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. 检查指定文件夹或文件是否有变动
-      - name: Move wanxiang-lts-zh-hans.gram to dist
-        if: env.SKIP != 'true'
+      - name: Check if cn_dicts or wanxiang-lts-zh-hans.gram has changes
+        id: check_changes
         run: |
-          if [ -f "wanxiang-lts-zh-hans.gram" ]; then
-            cp wanxiang-lts-zh-hans.gram dist/10-wanxiang-lts-zh-hans.gram
-            echo "Moved wanxiang-lts-zh-hans.gram to dist/10-wanxiang-lts-zh-hans.gram"
+          if git diff --quiet HEAD HEAD~1 -- cn_dicts wanxiang-lts-zh-hans.gram; then
+            echo "SKIP=true" >> $GITHUB_ENV
           else
-            echo "Error: wanxiang-lts-zh-hans.gram file not found!"
-            exit 1
+            echo "SKIP=false" >> $GITHUB_ENV
           fi
       # 3. 条件跳过任务
       - name: Skip if no changes
