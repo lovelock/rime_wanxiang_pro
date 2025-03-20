@@ -19,13 +19,15 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. 检查指定文件夹或文件是否有变动
-      - name: Check if cn_dicts or wanxiang-lts-zh-hans.gram has changes
-        id: check_changes
+      - name: Move wanxiang-lts-zh-hans.gram to dist
+        if: env.SKIP != 'true'
         run: |
-          if git diff --quiet HEAD HEAD~1 -- cn_dicts wanxiang-lts-zh-hans.gram; then
-            echo "SKIP=true" >> $GITHUB_ENV
+          if [ -f "wanxiang-lts-zh-hans.gram" ]; then
+            cp wanxiang-lts-zh-hans.gram dist/10-wanxiang-lts-zh-hans.gram
+            echo "Moved wanxiang-lts-zh-hans.gram to dist/10-wanxiang-lts-zh-hans.gram"
           else
-            echo "SKIP=false" >> $GITHUB_ENV
+            echo "Error: wanxiang-lts-zh-hans.gram file not found!"
+            exit 1
           fi
       # 3. 条件跳过任务
       - name: Skip if no changes
@@ -55,7 +57,7 @@ jobs:
           echo "Packing original cn_dicts..."
           if [ -d "cn_dicts" ]; then
             zip -r dist/cn_dicts.zip cn_dicts
-            echo "Packing completed: dist/cn_dicts.zip"
+            echo "Packing completed: dist/9-cn_dicts.zip"
           else
             echo "Error: cn_dicts folder does not exist."
             exit 1
@@ -65,15 +67,28 @@ jobs:
         if: env.SKIP != 'true'
         run: |
           echo "Packing splitted dict folders..."
-          # 你可以选择分别单独打包，也可以合并打包
-          # 示例如下：分别打包
-          for dict_dir in moqi_cndicts flypy_dicts zrm_dicts jdh_dicts cj_dicts tiger_dicts wubi_dicts hanxin_dicts
-          do
+      
+          # 定义文件夹 -> ZIP文件名的映射关系
+          declare -A dict_map=(
+            ["moqi_cndicts"]="1-moqi_cndicts.zip"
+            ["flypy_dicts"]="2-flypy_dicts.zip"
+            ["zrm_dicts"]="3-zrm_dicts.zip"
+            ["jdh_dicts"]="4-jdh_dicts.zip"
+            ["cj_dicts"]="5-cj_dicts.zip"
+            ["tiger_dicts"]="6-tiger_dicts.zip"
+            ["wubi_dicts"]="7-wubi_dicts.zip"
+            ["hanxin_dicts"]="8-hanxin_dicts.zip"
+          )
+      
+          mkdir -p dist
+      
+          # 遍历字典并按指定顺序命名 ZIP 文件
+          for dict_dir in "${!dict_map[@]}"; do
             if [ -d "$dict_dir" ]; then
-              zip -r "dist/${dict_dir}.zip" "$dict_dir"
-              echo "Packed: dist/${dict_dir}.zip"
+              zip -r "dist/${dict_map[$dict_dir]}" "$dict_dir"
+              echo "Packed: dist/${dict_map[$dict_dir]}"
             else
-              echo "Warning: ${dict_dir} folder does not exist. Skipped."
+              echo "Warning: $dict_dir folder does not exist. Skipped."
             fi
           done
 
@@ -126,7 +141,7 @@ jobs:
           tag_name: dict-nightly
           name: "每夜构建-词库更新"
           body: |
-            - **cn_dicts.zip**：最新的原始中文词库文件
+            - **cn_dicts.zip**：最新的全辅助码原始中文词库文件
             - **moqi_cndicts.zip**：墨奇辅助码
             - **flypy_dicts.zip**：小鹤辅助码
             - **zrm_dicts.zip**：自然码辅助码
