@@ -26,7 +26,7 @@ jobs:
             echo "SKIP=true" >> $GITHUB_ENV
           else
             echo "SKIP=false" >> $GITHUB_ENV
-
+          fi
       # 3. 条件跳过任务
       - name: Skip if no changes
         if: env.SKIP == 'true'
