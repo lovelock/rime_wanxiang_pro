@@ -4,7 +4,7 @@
  [为什么默认关闭调频的说明](https://github.com/amzxyz/RIME-LMDG/wiki/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%B3%E9%97%AD%E8%B0%83%E9%A2%91%E4%BB%A5%E5%8F%8A%E4%B8%8E%E4%B9%8B%E5%85%B3%E8%81%94%E7%9A%84%E6%8E%AA%E6%96%BD%E6%9C%89%E5%93%AA%E4%BA%9B)   ```enable_user_dict: false # 是否开启自动调频，true为开启```
 
 ### 万象拼音  基于深度优化的词库和语言模型[万象词库与万象语言模型](https://github.com/amzxyz/RIME-LMDG) 这是一种带声调的词库，经过AI和大基数语料筛选、加频，结合语言模型获得更准确的整句输出。还结合了中英文混输，一套词库，多种用法，具体可以跳转了解优势。
-#### 词库词语全部加音调，设计8种辅助码，头部使用全拼编码，可以转化为任何双拼编码，词库解码顺序为：全拼拼音；墨奇;鹤形;自然码;简单鹤;仓颉首末;虎码首末;五笔前2;汉心码，因此万象拼音支持拼音和辅助码任意两两组合。
+#### 词库词语全部加音调，设计8种辅助码(缩减后)，头部使用全拼编码，可以转化为任何双拼编码，词库解码顺序为：全拼拼音；墨奇码;鹤形;自然码;简单鹤;仓颉;虎码首末;五笔前2;汉心码; 因此万象拼音支持拼音和辅助码任意两两组合。
 
 为什么词库这么大，我见过只有单字携带辅助码的方案，词库可以缩小？在这里我借助wiki深入阐述一下这个问题并解答这些问题：[万象词库PRO的设计理念](https://github.com/amzxyz/RIME-LMDG/wiki/%E4%B8%87%E8%B1%A1%E8%AF%8D%E5%BA%93PRO%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5)
 
@@ -29,7 +29,7 @@
 set_shuru_schema: #配置此项就是选择什么输入法,同时拆分反查和中英文混输也将匹配该输入方案
   __include: algebra_zrm  #可选解码规则有   algebra_pinyin, algebra_zrm, algebra_flypy,  algebra_ziguang, algebra_sogou, algebra_mspy, algebra_abc  选择一个填入
 set_algebra_fuzhu:#配置此项就是选择什么辅助码
-  __include: fuzhu_zrm#可选辅助码有：fuzhu_kong，fuzhu_moqi, fuzhu_zrm, fuzhu_flypy, fuzhu_tiger, fuzhu_cj, fuzhu_wubi, fuzhu_jdh  fuzhu_hanxin 选择一个填入
+  __include: fuzhu_zrm#可选辅助码有：fuzhu_kong，fuzhu_moqi, fuzhu_zrm, fuzhu_flypy, jdh, cj, fuzhu_tiger, fuzhu_wubi, fuzhu_hanxin 选择一个填入
 pro_comment_format:   # 超级注释模块，子项配置 true 开启，false 关闭
   candidate_length: 1 # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
   fuzhu_type: zrm # 用于匹配对应的辅助码注释显示，基于默认词典的可选注释类型有：(tone, moqi, flypy, zrm, jdh, cj, tiger, wubi, hanxin)选择一个填入，之所以单独列出是因为这里有更多的可配置性，而真正的辅助码默认只有7种
