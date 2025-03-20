@@ -3,7 +3,7 @@ name: Nightly Build dicts
 on:
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: "0 14 * * *" # 每天晚上 10 点
+    - cron: "0 14 * * *" # 每天晚上10点
 
 concurrency: # 防止并发冲突
   group: nightly-release
@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      # 检出代码
+      # 1. 检出代码
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 检查是否需要更新
+      # 2. 检查指定文件夹或文件是否有变动
       - name: Check if cn_dicts or wanxiang-lts-zh-hans.gram has changes
         id: check_changes
         run: |
@@ -26,28 +26,58 @@ jobs:
             echo "SKIP=true" >> $GITHUB_ENV
           else
             echo "SKIP=false" >> $GITHUB_ENV
-          fi
 
-      # 条件跳过任务
+      # 3. 条件跳过任务
       - name: Skip if no changes
         if: env.SKIP == 'true'
         run: echo "No changes detected in 'cn_dicts' or 'wanxiang-lts-zh-hans.gram'. Skipping release process."
 
-      # 打包词库文件（但不包含 wanxiang-lts-zh-hans.gram）
+      # 4. 安装 Python（确保我们能够调用 Python 脚本）
+      - name: Setup Python
+        if: env.SKIP != 'true'
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      # 5. 运行Python 脚本对 cn_dicts 进行处理，生成多个词库文件夹
+      - name: Process Rime dicts
+        if: env.SKIP != 'true'
+        run: |
+          echo "Processing cn_dicts with Python script..."
+          pip install --upgrade pip
+          python custom/万象分包.py
+
+      # 6. 打包原有的 cn_dicts 文件夹
       - name: Pack cn_dicts
         if: env.SKIP != 'true'
         run: |
           mkdir -p dist
-          echo "Packing cn_dicts..."
+          echo "Packing original cn_dicts..."
           if [ -d "cn_dicts" ]; then
             zip -r dist/cn_dicts.zip cn_dicts
             echo "Packing completed: dist/cn_dicts.zip"
           else
             echo "Error: cn_dicts folder does not exist."
             exit 1
-          fi
 
-      # 删除旧的 Release 和 Tag（如果存在）
+      # 7. 将拆分后的 8 个词库文件夹一并打包
+      - name: Pack splitted dicts
+        if: env.SKIP != 'true'
+        run: |
+          echo "Packing splitted dict folders..."
+          # 你可以选择分别单独打包，也可以合并打包
+          # 示例如下：分别打包
+          for dict_dir in moqi_cndicts flypy_dicts zrm_dicts jdh_dicts cj_dicts tiger_dicts wubi_dicts hanxin_dicts
+          do
+            if [ -d "$dict_dir" ]; then
+              zip -r "dist/${dict_dir}.zip" "$dict_dir"
+              echo "Packed: dist/${dict_dir}.zip"
+            else
+              echo "Warning: ${dict_dir} folder does not exist. Skipped."
+            fi
+          done
+
+      # 8. 删除旧的 Release 和 Tag
       - name: Delete existing Nightly Release and Tag
         if: env.SKIP != 'true'
         uses: actions/github-script@v6
@@ -61,7 +91,6 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo
               });
-
               const existingRelease = releases.data.find(r => r.tag_name === tag);
               if (existingRelease) {
                 console.log(`Deleting existing Release with ID: ${existingRelease.id}`);
@@ -83,12 +112,12 @@ jobs:
               console.log(`Error deleting Release or Tag: ${error.message}`);
             }
 
-      # 确保删除后等待旧数据清理完成
+      # 9. 等待清理完成
       - name: Wait for cleanup
         if: env.SKIP != 'true'
         run: sleep 10
 
-      # 创建新的 Release 并单独上传 `wanxiang-lts-zh-hans.gram`
+      # 10. 创建新的 Release，并把上述打包好的所有文件都上传
       - name: Create new Release
         if: env.SKIP != 'true'
         uses: "softprops/action-gh-release@v2"
@@ -97,11 +126,27 @@ jobs:
           tag_name: dict-nightly
           name: "每夜构建-词库更新"
           body: |
-            - `cn_dicts.zip`：最新的中文词库文件。
-            - `wanxiang-lts-zh-hans.gram`：与词库同步更新的语法模型。
+            - **cn_dicts.zip**：最新的原始中文词库文件
+            - **moqi_cndicts.zip**：墨奇辅助码
+            - **flypy_dicts.zip**：小鹤辅助码
+            - **zrm_dicts.zip**：自然码辅助码
+            - **jdh_dicts.zip**：简单鹤辅助码
+            - **cj_dicts.zip**：仓颉辅助码
+            - **tiger_dicts.zip**：虎码辅助码
+            - **wubi_dicts.zip**：五笔辅助码
+            - **hanxin_dicts.zip**：汉心辅助码
+            - **wanxiang-lts-zh-hans.gram**：与词库同步更新的语法模型
           files: |
             dist/cn_dicts.zip
+            dist/moqi_cndicts.zip
+            dist/flypy_dicts.zip
+            dist/zrm_dicts.zip
+            dist/jdh_dicts.zip
+            dist/cj_dicts.zip
+            dist/tiger_dicts.zip
+            dist/wubi_dicts.zip
+            dist/hanxin_dicts.zip
             wanxiang-lts-zh-hans.gram
-          draft: false        # 确保不是草稿
-          prerelease: false   # 确保不是预发布版本
-          make_latest: true   # 强制标记为最新版本
+          draft: false
+          prerelease: false
+          make_latest: true
