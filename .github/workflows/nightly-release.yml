@@ -59,7 +59,7 @@ jobs:
           else
             echo "Error: cn_dicts folder does not exist."
             exit 1
-
+          fi
       # 7. 将拆分后的 8 个词库文件夹一并打包
       - name: Pack splitted dicts
         if: env.SKIP != 'true'
