@@ -355,7 +355,7 @@ punctuator:
 key_binder:
   import_preset: default  # 从 default.yaml 继承通用的
   # Lua 配置: 超级tips上屏按键
-  tips_key: "slash"   #修改时候去default找
+  tips_key: "period"   #修改时候去default找
   search: "`"             # 辅码引导符，要添加到 speller/alphabet
   bindings:             # 也可以再增加方案专有的
     #- { when: composing, accept: Tab, send: '[' } ## 取消注释后：tab引导辅助码
