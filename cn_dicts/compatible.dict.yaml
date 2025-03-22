@@ -4,7 +4,7 @@
 #兼容词库，对于多字词汇两种读音的场景，手动维护到本表以及一些其他的杂项
 ---
 name: compatible
-version: "2025-03-21 21:23"
+version: "2025-03-22 21:30"
 sort: by_weight
 ...
 攒个	cuán;fb;fr;fz;jm;qo,xo;uo;rt;fr gè;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra	391
@@ -13,6 +13,10 @@ sort: by_weight
 长点儿	zhǎng;pn;pn;pd;uh;po;pc;ta;pn diǎn;vh;lh;hv;pn;yf,xf;yc;hk;ve ér;pv;pv;pg;kk;lu;pe;qt;pv	293
 就得到	jiù;wy;wy;yj;ih;yu;go;yi;wy děi;rc;ic;xc;hk;hi;wk;tj;rc dào;gd;ad;dv;di;mn;yp;gc;vd	498
 就得到	jiù;wy;wy;yj;ih;yu;go;yi;wy dé;rc;ic;xc;hk;hi;wk;tj;rc dào;gd;ad;dv;di;mn;yp;gc;vd	498
+调回来	tiáo;yk;yk;yv;co;ir;sd;ym;yk huí;kk;kk;kk;no;wr;rd;lk;wk lái;am;an;am,wb;dl;dt;ah;go;an	187
+调回了	tiáo;yk;yk;yv;co;ir;sd;ym;yk huí;kk;kk;kk;no;wr;rd;lk;wk le;al;vl;aa,vu;rp;nn;rl;bn;vv	151
+调回去	tiáo;yk;yk;yv;co;ir;sd;ym;yk huí;kk;kk;kk;no;wr;rd;lk;wk qù;ts;ts;ts;gp;gi;gk;fc;tv	137
+调回	tiáo;yk;yk;yv;co;ir;sd;ym;yk huí;kk;kk;kk;no;wr;rd;lk;wk	513
 掉色	diào;fu;fu;fv;js;qj;un;rh;fu sè;db;db;db;gt;nu;xm;qc;eb	552
 掉色	diào;fu;fu;fv;js;qj;un;rh;fu shǎi;db;db;db;gt;nu;xm;qc;eb	552
 大方	dà;ar;un;ad;xx;kk;md;dd;an fang;wv;dw;dg,wd,dp,dw;ff;ys;lf;yy;wp	676
