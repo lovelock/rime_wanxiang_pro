@@ -2,8 +2,9 @@ name: Nightly Build dicts
 
 on:
   workflow_dispatch: # 手动触发
-  schedule:
-    - cron: "0 14 * * *" # 每天晚上10点
+  push:
+    branches:
+      - main
 
 concurrency: # 防止并发冲突
   group: nightly-release
