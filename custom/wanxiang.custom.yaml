@@ -38,7 +38,7 @@ patch:
     - name: full_shape
       states: [ 半, 全 ]
     - name: emoji
-      states: [ 💀, 😄 ]
+      states: [ 🙃, 😄 ]
       reset: 0
     - name: chinese_english
       states: [ 译, 翻 ]

@@ -4,11 +4,12 @@
 #兼容词库，对于多字词汇两种读音的场景，手动维护到本表以及一些其他的杂项
 ---
 name: compatible
-version: "2025-03-23 18:02"
+version: "2025-03-23 23:48"
 sort: by_weight
 ...
 攒个	cuán;fb;fr;fz;jm;qo,xo;uo;rt;fr gè;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra	391
 攒个	zǎn;fb;fr;fz;jm;qo,xo;uo;rt;fr gè;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra	391
+外传	wài;xb;xb;xb;fh;ny;ly;qh;xb chuán;rv;rv;rv;xh;oi;ji;wf;rv	460
 长点儿	cháng;pn;pn;pd;uh;po;pc;ta;pn diǎn;vh;lh;hv;pn;yf,xf;yc;hk;ve ér;pv;pv;pg;kk;lu;pe;qt;pv	293
 长点儿	zhǎng;pn;pn;pd;uh;po;pc;ta;pn diǎn;vh;lh;hv;pn;yf,xf;yc;hk;ve ér;pv;pv;pg;kk;lu;pe;qt;pv	293
 有的行	yǒu;uo;uo;ou,uo;sl;kb;nv;de;ao de;bu;bu;bu;sh;hi,xx;ui;rq;bu háng;rd;ii;xd,xi;hp;hn;px;tf;rd	230
