@@ -4,13 +4,14 @@
 #兼容词库，对于多字词汇两种读音的场景，手动维护到本表以及一些其他的杂项
 ---
 name: compatible
-version: "2025-03-23 09:53"
+version: "2025-03-23 14:35"
 sort: by_weight
 ...
 攒个	cuán;fb;fr;fz;jm;qo,xo;uo;rt;fr gè;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra	391
 攒个	zǎn;fb;fr;fz;jm;qo,xo;uo;rt;fr gè;rl;rl;ra,pa;ep;ol,xl;jg;wh;ra	391
 长点儿	cháng;pn;pn;pd;uh;po;pc;ta;pn diǎn;vh;lh;hv;pn;yf,xf;yc;hk;ve ér;pv;pv;pg;kk;lu;pe;qt;pv	293
 长点儿	zhǎng;pn;pn;pd;uh;po;pc;ta;pn diǎn;vh;lh;hv;pn;yf,xf;yc;hk;ve ér;pv;pv;pg;kk;lu;pe;qt;pv	293
+有的行	yǒu;uo;uo;ou,uo;sl;kb;nv;de;ao de;bu;bu;bu;sh;hi,xx;ui;rq;bu háng;rd;ii;xd,xi;hp;hn;px;tf;rd	230
 就得到	jiù;wy;wy;yj;ih;yu;go;yi;wy děi;rc;ic;xc;hk;hi;wk;tj;rc dào;gd;ad;dv;di;mn;yp;gc;vd	498
 就得到	jiù;wy;wy;yj;ih;yu;go;yi;wy dé;rc;ic;xc;hk;hi;wk;tj;rc dào;gd;ad;dv;di;mn;yp;gc;vd	498
 调回来	tiáo;yk;yk;yv;co;ir;sd;ym;yk huí;kk;kk;kk;no;wr;rd;lk;wk lái;am;an;am,wb;dl;dt;ah;go;an	187
