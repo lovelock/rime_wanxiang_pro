@@ -40,7 +40,7 @@ end
 function M.init(env)
     local config = env.engine.schema.config
     env.settings = {
-        fuzhu_type = config:get_string("pro_comment_format/fuzhu_type") or ""
+        fuzhu_type = config:get_string("super_comment/fuzhu_type") or ""
     }
 end
     -- **判断是否为字母或数字和特定符号**
